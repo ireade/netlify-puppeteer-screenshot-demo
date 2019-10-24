@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Netlify Puppeteer Screenshot Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Netlify Puppeteer Screenshot Demo</h1>
+
+    <script>
+        fetch("/.netlify/functions/take-screenshot")
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+    </script>
+</body>
+</html>
