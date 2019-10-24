@@ -2,8 +2,3 @@
 [build]
   publish = "public/"
   functions = "functions/"
-
-
-[context.production]
-
-  environment = { AWS_LAMBDA_FUNCTION_NAME = "take-screenshot" }
