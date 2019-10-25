@@ -15,10 +15,13 @@ main {
     margin: 30px auto;
 }
 
+#result {
+    margin: 20px 0;
+}
+
 img {
     width: 100%;
     height: auto;
-    margin: 20px 0;
 }
 
 form {
