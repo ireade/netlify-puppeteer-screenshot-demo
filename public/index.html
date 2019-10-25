@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Netlify Puppeteer Screenshot Demo</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Netlify Puppeteer Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Netlify Puppeteer Screenshot Demo</h1>
+    <main>
+        <h1>Netlify Puppeteer Demo</h1>
+        <p>A demonstration of how to use Puppeteer in a  Netlify function to take a screenshot of a web page.</p>
+        <p>
+            <a href="https://github.com/ireade/netlify-puppeteer-screenshot-demo">🛠View the source of this website</a><br>
+            <a href="">📖 Read the article</a>
+        </p>
 
-    <script>
-        fetch("/.netlify/functions/take-screenshot")
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log(err)
-            });
-    </script>
+        <form>
+            <input type="text" id="page" value="https://bitsofco.de">
+            <button type="submit">Screenshot!</button>
+        </form>
+
+        <div id="result"></div>
+    </main>
+    
+    <script src="script.js"></script>
 </body>
 </html>
