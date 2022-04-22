@@ -10,12 +10,15 @@ exports.handler = async (event, context) => {
     }
 
     const browser = await chromium.puppeteer.launch({
-        args: chromium.args,
+        args: [...chromium.args, '--disable-features=AudioServiceOutOfProcess',
+            '--disable-gpu',
+            '--disable-software-rasterize'
+        ],
         defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath,
         headless: chromium.headless,
     });
-    
+
     const page = await browser.newPage();
 
     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
@@ -23,12 +26,12 @@ exports.handler = async (event, context) => {
     const screenshot = await page.screenshot({ encoding: 'binary' });
 
     await browser.close();
-  
+
     return {
         statusCode: 200,
-        body: JSON.stringify({ 
-            message: `Complete screenshot of ${pageToScreenshot}`, 
-            buffer: screenshot 
+        body: JSON.stringify({
+            message: `Complete screenshot of ${pageToScreenshot}`,
+            buffer: screenshot
         })
     }
 

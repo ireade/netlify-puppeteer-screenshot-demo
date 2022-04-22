@@ -1,4 +1,4 @@
 
 [build]
-  publish = "public/"
-  functions = "functions/"
+  publish = "public"
+  functions = "functions"
